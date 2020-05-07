@@ -7,23 +7,34 @@ Clone or download the project to your system.
 
 ### **Prerequisites**
 Node.js
-'''Install the latest version if you dont have one'''
+```
+Install the latest version if you dont have one
+```
+
 Android studio and andriod sdk
-
+```
 If you want you bundle your app for using on mobile device.
+```
+
 Cordova
-
+```
 If you want you bundle your app for using on mobile device.
-Installing
+```
+
+### **Installing**
 npm install
-
+```
 This will install the dependencies
+```
 npm start
-
+```
 This will get the server up and running
+```
 ionic cordova build android
-
+```
 This will generate an application that can be installed on the phones.
-Authors
+```
+
+### **Authors**
 Akshata Basrur - Initial work - (https://github.com/AkshataBasrur)
 
