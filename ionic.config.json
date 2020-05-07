@@ -1,5 +1,7 @@
 {
   "name": "assignment9",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

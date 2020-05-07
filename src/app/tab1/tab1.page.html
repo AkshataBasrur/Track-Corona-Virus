@@ -1,17 +1,104 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Track USA's corona count
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- <ion-item [ngSwitch]="stats">-->
+  <ion-item class="b">
+    <ion-label>Select State</ion-label>
+    <ion-select
+      placeholder="Select One"
+      ngModel
+      (ngModelChange)="showSelectValue($event)"
+    >
+      <ion-select-option *ngFor="let val of stats" [value]="val">
+        <!-- *ngFor="let val of stats" -->
+        {{val.state}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-text color="ternary">
+    <h4>
+      Coronavirus disease (COVID-19) is an infectious disease caused by a new
+      virus. Stay indoors, Stay Safe folks!
+    </h4>
+  </ion-text>
+
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label>POSITIVE</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{currentSelection.positive}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label>NEGATIVE</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{currentSelection.negative}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label> HOSPITALIZED</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{currentSelection.hospitalized}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label>RECOVERED</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{currentSelection.recovered}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label>DEATH</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{currentSelection.death}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col> </ion-col>
+  </ion-row>
+  <ion-text color="ternary">
+    <h4>
+      The numbers dispalyed above are updated periodically throughout the day.
+    </h4>
+  </ion-text>
+
+  <ion-item>
+    <ion-button [routerLink]="'/trackWorldCount'" fill="outline" slot="start">
+      Track global corona count
+    </ion-button>
+  </ion-item>
 </ion-content>

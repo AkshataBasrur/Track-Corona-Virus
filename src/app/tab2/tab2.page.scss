@@ -1,3 +1,16 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+.a {
+  --background: rgb(17, 17, 15) !important;
+  --color: white;
+}
+
+.b {
+  --background: rgb(117, 39, 9) !important;
+  --color: white;
+}
+ion-button {
+  --color: rgb(117, 39, 9) !important;
+  width: 100%;
+}

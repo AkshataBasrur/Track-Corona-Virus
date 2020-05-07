@@ -1,17 +1,88 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Track coronavirus’ global spread
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item class="b">
+    <ion-label>Select Country</ion-label>
+    <ion-select
+      placeholder="Select One"
+      ngModel
+      (ngModelChange)="showSelectValue($event)"
+    >
+      <ion-select-option *ngFor="let val of dataKeys" [value]="val">
+        <!-- *ngFor="let val of stats" -->
+        {{val}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-item class="b">
+    <ion-label>Date</ion-label>
+    <ion-icon name="calendar-sharp" color="white"></ion-icon>
+    <ion-datetime
+      displayFormat="YYYY-MM-DD"
+      pickerFormat="YYYY-MM-DD"
+      ngModel
+      min="2020-01-22"
+      max="{{yyyy}}-{{mm}}-{{dd}}"
+      (ngModelChange)="showSelectedDate($event)"
+    ></ion-datetime
+  ></ion-item>
+
+  <ion-text color="ternary">
+    <h4>
+      Coronavirus disease (COVID-19) is an infectious disease caused by a new
+      virus. Stay indoors, Stay Safe folks!
+    </h4>
+  </ion-text>
+
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label>CONFIRMED</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{confirmed}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label>DEATH</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{deaths}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-item class="a">
+          <ion-label> RECOVERED</ion-label>
+        </ion-item>
+        <ion-card-content>
+          {{recovered}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-item>
+    <ion-button [routerLink]="'/trackUSACount'" fill="outline" slot="start">
+      Track USA corona count
+    </ion-button>
+  </ion-item>
 </ion-content>
